@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Founderproject #<%= @the_founderproject.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/founderprojects">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_founderproject/<%= @the_founderproject.id %>">
+          Delete founderproject
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Project
+      </dt>
+      <dd>
+        <%= @the_founderproject.project_id %>
+      </dd>
+
+      <dt>
+        Founder
+      </dt>
+      <dd>
+        <%= @the_founderproject.founder_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_founderproject.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_founderproject.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit founderproject
+    </h2>
+
+    <form action="/modify_founderproject/<%= @the_founderproject.id %>"  method="post" >
+      <div>
+        <label for="project_id_box">
+          Project
+        </label>
+
+        <input type="text" id="project_id_box" name="query_project_id" value="<%= @the_founderproject.project_id %>">
+      </div>
+
+      <div>
+        <label for="founder_id_box">
+          Founder
+        </label>
+
+        <input type="text" id="founder_id_box" name="query_founder_id" value="<%= @the_founderproject.founder_id %>">
+      </div>
+
+      <button>
+        Update founderproject
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

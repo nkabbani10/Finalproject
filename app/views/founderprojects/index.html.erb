@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all founderprojects
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new founderproject
+    </h2>
+
+    <form action="/insert_founderproject" method="post">
+      <div>
+        <label for="project_id_box">
+          Project
+        </label>
+
+        <input type="text" id="project_id_box" name="query_project_id">
+      </div>
+
+      <div>
+        <label for="founder_id_box">
+          Founder
+        </label>
+
+        <input type="text" id="founder_id_box" name="query_founder_id">
+      </div>
+
+      <button>
+        Create founderproject
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Project
+        </th>
+
+        <th>
+          Founder
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_founderprojects.each do |a_founderproject| %>
+      <tr>
+        <td>
+          <%= a_founderproject.id %>
+        </td>
+
+        <td>
+          <%= a_founderproject.project_id %>
+        </td>
+
+        <td>
+          <%= a_founderproject.founder_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_founderproject.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_founderproject.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/founderprojects/<%= a_founderproject.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

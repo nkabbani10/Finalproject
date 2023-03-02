@@ -1,0 +1,116 @@
+<div>
+  <div>
+    <h1>
+      Investor #<%= @the_investor.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/investors">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_investor/<%= @the_investor.id %>">
+          Delete investor
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_investor.name %>
+      </dd>
+
+      <dt>
+        Dob
+      </dt>
+      <dd>
+        <%= @the_investor.dob %>
+      </dd>
+
+      <dt>
+        Bio
+      </dt>
+      <dd>
+        <%= @the_investor.bio %>
+      </dd>
+
+      <dt>
+        Image
+      </dt>
+      <dd>
+        <%= @the_investor.image %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_investor.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_investor.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit investor
+    </h2>
+
+    <form action="/modify_investor/<%= @the_investor.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_investor.name %>">
+      </div>
+
+      <div>
+        <label for="dob_box">
+          Dob
+        </label>
+
+        <input type="text" id="dob_box" name="query_dob" value="<%= @the_investor.dob %>">
+      </div>
+
+      <div>
+        <label for="bio_box">
+          Bio
+        </label>
+
+        <input type="text" id="bio_box" name="query_bio" value="<%= @the_investor.bio %>">
+      </div>
+
+      <div>
+        <label for="image_box">
+          Image
+        </label>
+
+        <input type="text" id="image_box" name="query_image" value="<%= @the_investor.image %>">
+      </div>
+
+      <button>
+        Update investor
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

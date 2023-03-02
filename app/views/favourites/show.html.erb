@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Favourite #<%= @the_favourite.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/favourites">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_favourite/<%= @the_favourite.id %>">
+          Delete favourite
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_favourite.user_id %>
+      </dd>
+
+      <dt>
+        Project
+      </dt>
+      <dd>
+        <%= @the_favourite.project_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_favourite.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_favourite.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit favourite
+    </h2>
+
+    <form action="/modify_favourite/<%= @the_favourite.id %>"  method="post" >
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_favourite.user_id %>">
+      </div>
+
+      <div>
+        <label for="project_id_box">
+          Project
+        </label>
+
+        <input type="text" id="project_id_box" name="query_project_id" value="<%= @the_favourite.project_id %>">
+      </div>
+
+      <button>
+        Update favourite
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

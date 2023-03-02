@@ -1,0 +1,131 @@
+<div>
+  <div>
+    <h1>
+      Project #<%= @the_project.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/projects">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_project/<%= @the_project.id %>">
+          Delete project
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_project.name %>
+      </dd>
+
+      <dt>
+        Founded
+      </dt>
+      <dd>
+        <%= @the_project.founded %>
+      </dd>
+
+      <dt>
+        Funding
+      </dt>
+      <dd>
+        <%= @the_project.funding %>
+      </dd>
+
+      <dt>
+        Description
+      </dt>
+      <dd>
+        <%= @the_project.description %>
+      </dd>
+
+      <dt>
+        Image
+      </dt>
+      <dd>
+        <%= @the_project.image %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_project.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_project.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit project
+    </h2>
+
+    <form action="/modify_project/<%= @the_project.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_project.name %>">
+      </div>
+
+      <div>
+        <label for="founded_box">
+          Founded
+        </label>
+
+        <input type="text" id="founded_box" name="query_founded" value="<%= @the_project.founded %>">
+      </div>
+
+      <div>
+        <label for="funding_box">
+          Funding
+        </label>
+
+        <input type="text" id="funding_box" name="query_funding" value="<%= @the_project.funding %>">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <input type="text" id="description_box" name="query_description" value="<%= @the_project.description %>">
+      </div>
+
+      <div>
+        <label for="image_box">
+          Image
+        </label>
+
+        <input type="text" id="image_box" name="query_image" value="<%= @the_project.image %>">
+      </div>
+
+      <button>
+        Update project
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Investorproject #<%= @the_investorproject.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/investorprojects">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_investorproject/<%= @the_investorproject.id %>">
+          Delete investorproject
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Investor
+      </dt>
+      <dd>
+        <%= @the_investorproject.investor_id %>
+      </dd>
+
+      <dt>
+        Project
+      </dt>
+      <dd>
+        <%= @the_investorproject.project_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_investorproject.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_investorproject.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit investorproject
+    </h2>
+
+    <form action="/modify_investorproject/<%= @the_investorproject.id %>"  method="post" >
+      <div>
+        <label for="investor_id_box">
+          Investor
+        </label>
+
+        <input type="text" id="investor_id_box" name="query_investor_id" value="<%= @the_investorproject.investor_id %>">
+      </div>
+
+      <div>
+        <label for="project_id_box">
+          Project
+        </label>
+
+        <input type="text" id="project_id_box" name="query_project_id" value="<%= @the_investorproject.project_id %>">
+      </div>
+
+      <button>
+        Update investorproject
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all investorprojects
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new investorproject
+    </h2>
+
+    <form action="/insert_investorproject" method="post">
+      <div>
+        <label for="investor_id_box">
+          Investor
+        </label>
+
+        <input type="text" id="investor_id_box" name="query_investor_id">
+      </div>
+
+      <div>
+        <label for="project_id_box">
+          Project
+        </label>
+
+        <input type="text" id="project_id_box" name="query_project_id">
+      </div>
+
+      <button>
+        Create investorproject
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Investor
+        </th>
+
+        <th>
+          Project
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_investorprojects.each do |an_investorproject| %>
+      <tr>
+        <td>
+          <%= an_investorproject.id %>
+        </td>
+
+        <td>
+          <%= an_investorproject.investor_id %>
+        </td>
+
+        <td>
+          <%= an_investorproject.project_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(an_investorproject.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(an_investorproject.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/investorprojects/<%= an_investorproject.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
