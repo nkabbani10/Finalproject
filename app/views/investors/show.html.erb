@@ -73,7 +73,7 @@
       Edit investor
     </h2>
 
-    <form action="/modify_investor/<%= @the_investor.id %>"  method="post" >
+    <form action="/modify_investor/<%= @the_investor.id %>"  method="post" class="form-horizontal" enctype="multipart/form-data">
       <div>
         <label for="name_box">
           Name
@@ -99,11 +99,11 @@
       </div>
 
       <div>
-        <label for="image_box">
+        <label for="image">
           Image
         </label>
 
-        <input type="text" id="image_box" name="query_image" value="<%= @the_investor.image %>">
+        <input type="file" id="image" name="image" class="form-control" value="<%= @the_investor.image %>">
       </div>
 
       <button>

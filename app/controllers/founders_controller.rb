@@ -22,7 +22,7 @@ class FoundersController < ApplicationController
     the_founder.name = params.fetch("query_name")
     the_founder.dob = params.fetch("query_dob")
     the_founder.bio = params.fetch("query_bio")
-    the_founder.image = params.fetch("query_image")
+    the_founder.image = params.fetch(:image)
 
     if the_founder.valid?
       the_founder.save
@@ -39,7 +39,7 @@ class FoundersController < ApplicationController
     the_founder.name = params.fetch("query_name")
     the_founder.dob = params.fetch("query_dob")
     the_founder.bio = params.fetch("query_bio")
-    the_founder.image = params.fetch("query_image")
+    the_founder.image = params.fetch(:image)
 
     if the_founder.valid?
       the_founder.save

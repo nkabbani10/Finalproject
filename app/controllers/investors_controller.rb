@@ -22,7 +22,7 @@ class InvestorsController < ApplicationController
     the_investor.name = params.fetch("query_name")
     the_investor.dob = params.fetch("query_dob")
     the_investor.bio = params.fetch("query_bio")
-    the_investor.image = params.fetch("query_image")
+    the_investor.image = params.fetch(:image)
 
     if the_investor.valid?
       the_investor.save
@@ -39,7 +39,7 @@ class InvestorsController < ApplicationController
     the_investor.name = params.fetch("query_name")
     the_investor.dob = params.fetch("query_dob")
     the_investor.bio = params.fetch("query_bio")
-    the_investor.image = params.fetch("query_image")
+    the_investor.image = params.fetch(:image)
 
     if the_investor.valid?
       the_investor.save
