@@ -13,19 +13,23 @@
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
 
+    <link rel="stylesheet" href="https://bootswatch.com/5/minty/bootstrap.css">
+
+    <link rel="stylesheet" href="css/my_styles.css">
+
   </head>
 
   <body>
   <div>
 <ul>
 <% if session[:user_id] == nil %>
-<li><a href="/user_sign_in">Sign in</a></li>
-<li><a href="/user_sign_up">Sign up</a></li>
+<a class="base-button neutral-button" href="/user_sign_in">Sign in</a>
+<a class="base-button neutral-button" href="/user_sign_up">Sign up</a>
 <% else %>
-<li><a href="/user_sign_out">Sign out</a></li>
-<li><a href="/favourites">My favourite projects</a></li>
+<a class="base-button neutral-button" href="/user_sign_out">Sign out</a>
+<a class="base-button neutral-button" href="/favourites">My favourite projects</a>
     <% end %>
-<li><a href="/">Home</a></li>
+<a class="base-button neutral-button" href="/">Home</a>
 </ul>
     <%= yield %>
   </body>

@@ -1,0 +1,19 @@
+body {
+  padding: 50px;
+}
+
+.base-button {
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+}
+
+.neutral-button {
+  background-color: lightskyblue;
+}
+.success-button {
+  background-color: green;
+}
+.danger-button {
+  background-color: red;
+}
