@@ -13,4 +13,5 @@
 class Founder < ApplicationRecord
   has_many(:founderprojects, { :class_name => "Founderproject", :foreign_key => "founder_id", :dependent => :destroy })
   has_many(:projects, { :through => :founderprojects, :source => :project })
+  mount_uploader :image, ImageUploader
 end

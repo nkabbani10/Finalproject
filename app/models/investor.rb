@@ -13,4 +13,5 @@
 class Investor < ApplicationRecord
   has_many(:investorprojects, { :class_name => "Investorproject", :foreign_key => "investor_id", :dependent => :destroy })
   has_many(:projects, { :through => :investorprojects, :source => :project })
+  mount_uploader :image, ImageUploader
 end

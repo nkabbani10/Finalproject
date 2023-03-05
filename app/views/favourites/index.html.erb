@@ -15,26 +15,23 @@
     </h2>
 
     <form action="/insert_favourite" method="post">
-      <div>
-        <label for="user_id_box">
-          User
-        </label>
-
-        <input type="text" id="user_id_box" name="query_user_id">
-      </div>
-
+      
       <div>
         <label for="project_id_box">
           Project
         </label>
 
-        <input type="text" id="project_id_box" name="query_project_id">
-      </div>
+
+        <select name="query_project_id" id="project_id_box">
+        <% Project.all.order(:name).each do |a_project| %>
+        <option value="<%= a_project.id %>"><%= a_project.name %></option> <% end %>
+        </select>
 
       <button>
         Create favourite
       </button>
     </form>
+    </div>
   </div>
 </div>
 
@@ -43,13 +40,6 @@
   <div>
     <table border="1">
       <tr>
-        <th>
-          ID
-        </th>
-
-        <th>
-          User
-        </th>
 
         <th>
           Project
@@ -60,37 +50,23 @@
         </th>
 
         <th>
-          Updated at
-        </th>
-
-        <th>
         </th>
       </tr>
 
       <% @list_of_favourites.each do |a_favourite| %>
       <tr>
-        <td>
-          <%= a_favourite.id %>
-        </td>
 
         <td>
-          <%= a_favourite.user_id %>
-        </td>
-
-        <td>
-          <%= a_favourite.project_id %>
+          <a href="/projects/<%= a_favourite.project_id %>"><%= a_favourite.project.name %>
         </td>
 
         <td>
           <%= time_ago_in_words(a_favourite.created_at) %> ago
         </td>
-        <td>
-          <%= time_ago_in_words(a_favourite.updated_at) %> ago
-        </td>
 
         <td>
-          <a href="/favourites/<%= a_favourite.id %>">
-            Show details
+          <a href="/delete_favourite/<%= a_favourite.id %>">
+            Un-favourite
           </a>
         </td>
       </tr>

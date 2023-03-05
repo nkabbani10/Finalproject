@@ -14,7 +14,7 @@
       Add a new project
     </h2>
 
-    <form action="/insert_project" method="post">
+    <form action="/insert_project" method="post" class="form-horizontal" enctype="multipart/form-data">
       <div>
         <label for="name_box">
           Name
@@ -25,7 +25,7 @@
 
       <div>
         <label for="founded_box">
-          Founded
+          Year founded
         </label>
 
         <input type="text" id="founded_box" name="query_founded">
@@ -33,7 +33,7 @@
 
       <div>
         <label for="funding_box">
-          Funding
+          Funding (in USD)
         </label>
 
         <input type="text" id="funding_box" name="query_funding">
@@ -41,22 +41,22 @@
 
       <div>
         <label for="description_box">
-          Description
+          Twitter pitch
         </label>
 
         <input type="text" id="description_box" name="query_description">
       </div>
 
       <div>
-        <label for="image_box">
-          Image
+        <label for="image">
+          Logo
         </label>
 
-        <input type="text" id="image_box" name="query_image">
+        <input type="file" id="image" name="image" class="form-control">
       </div>
 
       <button>
-        Create project
+        Post project
       </button>
     </form>
   </div>
@@ -126,7 +126,7 @@
         </td>
 
         <td>
-          <%= a_project.image %>
+          <img src="<%= a_project.image %>" class="img-responsive">
         </td>
 
         <td>

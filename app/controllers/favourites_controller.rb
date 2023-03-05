@@ -19,7 +19,7 @@ class FavouritesController < ApplicationController
 
   def create
     the_favourite = Favourite.new
-    the_favourite.user_id = params.fetch("query_user_id")
+    the_favourite.user_id = session.fetch(:user_id)
     the_favourite.project_id = params.fetch("query_project_id")
 
     if the_favourite.valid?
@@ -34,7 +34,7 @@ class FavouritesController < ApplicationController
     the_id = params.fetch("path_id")
     the_favourite = Favourite.where({ :id => the_id }).at(0)
 
-    the_favourite.user_id = params.fetch("query_user_id")
+    the_favourite.user_id = session.fetch(:user_id)
     the_favourite.project_id = params.fetch("query_project_id")
 
     if the_favourite.valid?

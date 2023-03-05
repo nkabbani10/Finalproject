@@ -17,4 +17,5 @@ class Project < ApplicationRecord
   has_many(:favourites, { :class_name => "Favourite", :foreign_key => "project_id", :dependent => :destroy })
   has_many(:founders, { :through => :founderprojects, :source => :founder })
   has_many(:investors, { :through => :investorprojects, :source => :investor })
+  mount_uploader :image, ImageUploader
 end

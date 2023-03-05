@@ -23,7 +23,7 @@ class ProjectsController < ApplicationController
     the_project.founded = params.fetch("query_founded")
     the_project.funding = params.fetch("query_funding")
     the_project.description = params.fetch("query_description")
-    the_project.image = params.fetch("query_image")
+    the_project.image = params.fetch(:image)
 
     if the_project.valid?
       the_project.save
@@ -41,7 +41,7 @@ class ProjectsController < ApplicationController
     the_project.founded = params.fetch("query_founded")
     the_project.funding = params.fetch("query_funding")
     the_project.description = params.fetch("query_description")
-    the_project.image = params.fetch("query_image")
+    the_project.image = params.fetch(:image)
 
     if the_project.valid?
       the_project.save
